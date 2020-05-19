@@ -1,8 +1,8 @@
 /**
 *@author: Laura Tamath
 *@since 16/05/2020
-*@version /05/2020
-*referencias Transversals of directed graph, PDF, compartido por Ing. Douglas: 
+*@version 18/05/2020
+*referencia: Transversals of directed graph, PDF, compartido por Ing. Douglas: 
 **/
 
 import java.io.BufferedReader;
@@ -60,6 +60,7 @@ public class Floyd{
         
         ArrayList<Integer> camino = new ArrayList<>();
         
+        //Ver la ruta para llegar a su destino
         for (i = 0; i < vertices; i++) {
             for (j = 0; j < vertices; j++) {
                 if(matrizAdy[i][j] != 1000000000){
@@ -145,9 +146,6 @@ public class Floyd{
         
         for(int x = 0; x < fila; x++){
             for(int y = 0; y < fila; y++){
-//                if(y == 0){
-//                    cadena += cities.get(x) + "\t\t\t";
-//                }
                 if(matriz[x][y]==999999999){
                     cadena += -1 + "\t";
                 }else{

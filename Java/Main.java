@@ -21,10 +21,10 @@ public class Main{
         Departamentos deps = new Departamentos();
         
 
-        FileReader fr = new FileReader(archivo);
-        BufferedReader br1 = new BufferedReader(fr);
+        FileReader reader = new FileReader(archivo);
+        BufferedReader buf = new BufferedReader(reader);
         String linea = "";
-        Scanner scanner = new Scanner(fr);
+        Scanner scanner = new Scanner(reader);
         
         String depa1;
         String depa2;
@@ -46,8 +46,8 @@ public class Main{
             
             departamento.add(new Departamentos(depa1, depa2, distancia));
             
-            fr.close();
-            br1.close();
+            reader.close();
+            buf.close();
         }
         
         
@@ -61,6 +61,8 @@ public class Main{
         
         OUTER:
         while (true) {
+            System.out.println("\nDebido al Covid-19, se mostrara una planificacion de la ruta mas corta entre hospitales");
+            System.out.println("***************************************************************************************");
             System.out.println("1. Mostrar ruta mas corta entre departamentos.");
             System.out.println("2. Indicar el departamento que esta en el centro del grafo.");
             System.out.println("3. Modificar grafo.");
@@ -98,14 +100,14 @@ public class Main{
                     break;
                 case 3:
                     String seleccion2 = "";
-                    System.out.println("\ta. Hay interrupción de tráfico entre un par de departamentos");
-                    System.out.println("\tb. Establecer nueva conexion entre departamentos.");
+                    System.out.println("\ta. Hay interrupcion de trafico entre un par de departamentos, debido a algun desastre natural.");
+                    System.out.println("\tb. Establecer nueva conexion entre departamentos, para una mejor movilizacion.");
                     seleccion2 = sc.next();
                     
                     if("a".equals(seleccion2.toLowerCase())){
-                        System.out.println("Ingrese el departamento de origen.");
+                        System.out.println("Ingrese el departamento de origen: ");
                         String ori = sc.next();
-                        System.out.println("Ingrese el departamento de destino.");
+                        System.out.println("Ingrese el departamento de destino: ");
                         String dest = sc.next();
                         
                         boolean hubo = false;
@@ -118,18 +120,18 @@ public class Main{
                             }
                         }
                         if(hubo == false){
-                            System.out.println("No se pudo encontrar dichos departamentos.");
+                            System.out.println("Estos departamentos no pertenecen al grafo.");
                         }
                     }else if("b".equals(seleccion2.toLowerCase())){
                         System.out.println("Ingrese el departamento de origen.");
                         String ori = sc.next();
                         System.out.println("Ingrese el departamento de destino.");
                         String dest = sc.next();
-                        System.out.println("Ingrese la distancia entre " + ori + " y " + dest);
+                        System.out.println("Ingrese la distancia entre " + ori + " y " + dest + ":");
                         int dist = sc.nextInt();
                         
                         departamento.add(new Departamentos(ori, dest, dist));
-                        System.out.println("Se agregaron los departamentos y  distancia respectiva, correctamente.");
+                        System.out.println("Se agregaron correctamente los departamentos y  distancia respectiva.");
                     }
                     
                     break;
